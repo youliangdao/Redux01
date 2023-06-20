@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { useSelector } from "react-redux";
-import { RootState } from "src/state";
+import { useTodos } from "src/state/todo";
 
 export const TodoCounter: FC = () => {
-  const todos = useSelector((state: RootState) => state.todos);
+  const todos = useTodos();
   return <h2>TODO: {todos.length}件</h2>;
 };

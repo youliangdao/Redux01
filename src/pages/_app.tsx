@@ -1,14 +1,13 @@
 import type { AppProps } from "next/app";
-import { Provider } from "react-redux";
 import { Layout } from "src/components/Layout";
-import { store } from "src/state";
+import { TodosProvider } from "src/state/todo";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <Provider store={store}>
+    <TodosProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </Provider>
+    </TodosProvider>
   );
 }

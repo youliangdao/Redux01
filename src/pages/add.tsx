@@ -1,15 +1,14 @@
 import type { NextPage } from "next";
 import { ComponentProps } from "react";
-import { useDispatch } from "react-redux";
-import { addTodo } from "src/state/todos";
+import { useTodosDispatch } from "src/state/todo";
 
 const Add: NextPage = () => {
-  const dispatch = useDispatch();
+  const { addTodo } = useTodosDispatch();
 
   const handleSubmit: ComponentProps<"form">["onSubmit"] = (event) => {
     event.preventDefault();
     const text = event.currentTarget.text.value;
-    dispatch(addTodo(text));
+    addTodo(text);
     event.currentTarget.reset();
   };
 
