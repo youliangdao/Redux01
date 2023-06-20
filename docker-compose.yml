@@ -11,3 +11,8 @@ services:
     command: sh -c "yarn dev"
 volumes:
   node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      device: ${PWD}/node_modules
+      o: bind
